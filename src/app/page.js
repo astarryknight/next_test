@@ -22,9 +22,13 @@ const useMousePosition = () => {
     };
   }, []);
 
-  console.log((mousePosition.x/window.innerWidth)*100);
-  var mx = (mousePosition.x/window.innerWidth)*100;
-  var my = (mousePosition.y/window.innerHeight)*100;
+  var mx=0,my=0;
+  if (typeof window !== "undefined") {
+    //console.log((mousePosition.x/window.innerWidth)*100);
+    mx = (mousePosition.x/window.innerWidth)*100;
+    my = (mousePosition.y/window.innerHeight)*100;
+  }
+
 
   const divStyle = {
     backgroundImage: `radial-gradient(circle at ${mx}% ${my}%, rgb(0, 194, 144) 5%, rgb(169, 242, 163) 15%, rgb(255, 192, 34) 25%, rgb(255, 77, 36) 35%, rgb(255, 255, 255) 45%)`,
